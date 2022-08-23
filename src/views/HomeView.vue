@@ -27,7 +27,7 @@ const newRestaurant = ref<Restaurant>({})
 function addRestaurant() {
   restaurantList.value.push({
     name: newRestaurant.value.name,
-    status: 'Want to Try',
+    status: newRestaurant.value.status,
     dishes: []
   })
 }
