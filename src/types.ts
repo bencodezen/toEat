@@ -15,3 +15,9 @@ export interface Dish {
   diet?: Diet
   status?: RecommendStatus
 }
+
+export interface Restaurant {
+  name?: string
+  status?: RecommendStatus
+  dishes?: Dish[]
+}
