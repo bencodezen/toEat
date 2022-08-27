@@ -7,20 +7,6 @@ const restaurantStore = useRestaurantStore()
 
 const newRestaurant = ref<Restaurant>({
   name: '',
-  address: '',
-  phone: '',
-  website: '',
-  hours: '',
-  description: '',
-  image: '',
-  price: '',
-  rating: '',
-  tags: [],
-  reviews: [],
-  location: {
-    lat: 0,
-    lng: 0,
-  },
 })
 
 const addRestaurant = () => {
@@ -37,11 +23,7 @@ const addRestaurant = () => {
     </div>
     <div>
       <label for="restaurant-status">Restaurant Status</label>
-      <select name="restaurant-status" id="restaurant-status" v-model="newRestaurant.status">
-        <option v-for="status in restaurantStatusList" :value="status" :key="status">
-          {{ status }}
-        </option>
-      </select>
+      <select name="restaurant-status" id="restaurant-status" v-model="newRestaurant.status"></select>
     </div>
     <button type="submit">Add Restaurant</button>
   </form>
