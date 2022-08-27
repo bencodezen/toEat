@@ -1,15 +1,7 @@
-<script setup lang="ts">
-import { useRestaurantStore } from '@/stores/RestaurantStore'
-
-const restaurantStore = useRestaurantStore()
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <main>
-    <ul>
-      <li v-for="restaurant in restaurantStore.restaurantList" :key="restaurant.name">
-        {{ restaurant.name }}
-      </li>
-    </ul>
+  <main class="section">
+    <h1>Home Page</h1>
   </main>
 </template>
