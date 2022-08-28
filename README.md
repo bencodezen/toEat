@@ -44,3 +44,8 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Photos
+
+- Home Page
+    - Photo by Andres Ayrton: https://www.pexels.com/photo/woman-showing-apple-and-bitten-doughnut-6551415/
