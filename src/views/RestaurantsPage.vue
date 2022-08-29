@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import RestaurantCard from '@/components/RestaurantCard.vue'
 import { useRestaurantStore } from '@/stores/RestaurantStore'
+import SideMenu from '../components/SideMenu.vue'
 
 const restaurantStore = useRestaurantStore()
 </script>
@@ -9,15 +10,7 @@ const restaurantStore = useRestaurantStore()
   <main class="section">
     <div class="columns">
       <!-- Side Menu -->
-      <div class="column is-4-tablet is-3-desktop is-2-widescreen">
-        <nav class="menu">
-          <p class="menu-label">Menu</p>
-          <ul class="menu-list">
-            <li><a href="#">Restaurants</a></li>
-            <li><a href="#">Dishes</a></li>
-          </ul>
-        </nav>
-      </div>
+      <SideMenu />
       <div class="column">
         <h1 class="title">Restaurants</h1>
         <!-- CTA Bar -->
@@ -28,7 +21,7 @@ const restaurantStore = useRestaurantStore()
             </div>
 
             <p class="level-item">
-              <a href="#" class="button is-success">New</a>
+              <router-link to="/restaurants/new" class="button is-success">New</router-link>
             </p>
 
             <div class="level-item is-hidden-tablet-only">

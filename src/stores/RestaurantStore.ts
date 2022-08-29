@@ -37,11 +37,11 @@ export const useRestaurantStore = defineStore({
     },]
   }),
   getters: {
-    numberOfRestaurants: (state): number => state.restaurantList.length
+    numberOfRestaurants: (state): number => state.list.length
   },
   actions: {
     addRestaurant(newRestaurant: Restaurant): void {
-      this.restaurantList.push(newRestaurant);
+      this.list.push(newRestaurant);
     }
   }
 })

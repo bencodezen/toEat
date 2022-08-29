@@ -1,17 +1,13 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import TheNavbar from './components/TheNavbar.vue'
+import TheFooter from './components/TheFooter.vue'
 </script>
 
 <template>
   <TheNavbar />
   <RouterView />
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>Built with Vue and Bulma by <a href="https://www.bencodezen.io">Ben Hong</a>. <br />Source Code</p>
-    </div>
-  </footer>
+  <TheFooter />
 </template>
 
 <style></style>
