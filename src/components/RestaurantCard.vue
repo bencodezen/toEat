@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useRestaurantStore } from '@/stores/RestaurantStore'
 import type { Restaurant } from '@/types'
 
 interface Props {
@@ -6,6 +7,8 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const restaurantStore = useRestaurantStore()
 </script>
 
 <template>
@@ -25,7 +28,7 @@ defineProps<Props>()
           {{ restaurant.address }}
           <br />
           <a href="#">Edit</a>.
-          <a href="#">Delete</a>
+          <button @click="restaurantStore.deleteRestaurant(restaurant)">Delete</button>
         </div>
       </div>
     </div>

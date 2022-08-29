@@ -3,10 +3,12 @@ import { ref } from 'vue'
 import type { Restaurant } from '@/types'
 import SideMenu from '../components/SideMenu.vue'
 import { useRestaurantStore } from '@/stores/RestaurantStore'
+import { v4 as uuidv4 } from 'uuid'
 
 const restaurantStore = useRestaurantStore()
 
 const newRestaurant = ref<Restaurant>({
+  id: uuidv4(),
   name: '',
   address: '',
   website: '',
