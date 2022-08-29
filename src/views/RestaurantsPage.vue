@@ -1,33 +1,8 @@
 <script setup lang="ts">
-const list = [
-  {
-    name: 'El Burrito Mercado',
-    address: '175 Cesar Chavez St, St Paul, MN 55107',
-    website: 'https://elburritomercado.com/',
-    status: {
-      level: 'Want to Try',
-      priority: 0,
-    },
-  },
-  {
-    name: 'El Cubano',
-    address: '870 Dodd Rd, St Paul, MN 55118',
-    website: 'http://elcubanorestaurante.com/',
-    status: {
-      level: 'Want to Try',
-      priority: 0,
-    },
-  },
-  {
-    name: "Brunson's Pub",
-    address: '956 Payne Ave, St Paul, MN 55130',
-    status: 'Visit Website',
-    status: {
-      level: 'Want to Try',
-      priority: 0,
-    },
-  },
-]
+import RestaurantCard from '@/components/RestaurantCard.vue'
+import { useRestaurantStore } from '@/stores/RestaurantStore'
+
+const restaurantStore = useRestaurantStore()
 </script>
 
 <template>
@@ -82,28 +57,8 @@ const list = [
         </nav>
         <!-- Display Results -->
         <div class="columns is-multiline">
-          <div v-for="item in list" class="column is-12-tablet is-6-desktop is-4-widescreen" :key="`item-${item}`">
-            <article class="box">
-              <div class="media">
-                <aside class="media-left">
-                  <img src="https://via.placeholder.com/80x120" alt="" />
-                </aside>
-                <div class="media-content">
-                  <p class="title is-4 is-spaced mb-1">
-                    <a href="#"> {{ item.name }} </a>
-                  </p>
-                  <p class="subtitle mb-2">
-                    <span class="tag is-info">Want to Try</span>
-                  </p>
-                  <div class="content is-small">
-                    {{ item.address }}
-                    <br />
-                    <a href="#">Edit</a>.
-                    <a href="#">Delete</a>
-                  </div>
-                </div>
-              </div>
-            </article>
+          <div v-for="item in restaurantStore.list" class="column is-full" :key="`item-${item}`">
+            <RestaurantCard :restaurant="item" />
           </div>
         </div>
         <!-- Pagination -->

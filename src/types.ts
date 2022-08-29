@@ -18,6 +18,10 @@ export interface Dish {
 
 export interface Restaurant {
   name?: string
-  status?: RecommendStatus
-  dishes?: Dish[]
+  address: string
+  website: string
+  status: {
+    level: string
+    priority: number
+  }
 }
