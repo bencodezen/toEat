@@ -1,6 +1,5 @@
 export const restaurantStatusList = [
   'Want to Try',
   'Recommended',
-  'Do Not Recommend',
-  'Must Eat'
+  'Do Not Recommend'
 ] as const

@@ -24,7 +24,7 @@ export const useRestaurantStore = defineStore({
       name: "Penne For Your Thoughts",
       address: '870 Thisisa St.',
       website: 'www.penneforyourthoughts.com',
-      status: 'Want to Try'
+      status: 'Do Not Recommend'
     },] as Restaurant[])
   }),
   getters: {
