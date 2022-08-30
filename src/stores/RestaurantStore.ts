@@ -17,7 +17,7 @@ export const useRestaurantStore = defineStore({
       name: 'Tamago Never Dies',
       address: '529 Letsgofora Dr.',
       website: 'www.tamagoneverdies.com',
-      status: 'Want to Try'
+      status: 'Recommended'
     },
     {
       id: '9b361dae-2d44-4499-9940-97e188d41a32',
