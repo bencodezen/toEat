@@ -12,10 +12,7 @@ const newRestaurant = ref<Restaurant>({
   name: '',
   address: '',
   website: '',
-  status: {
-    level: 'Want to Try',
-    priority: 0,
-  },
+  status: 'Want to Try',
 })
 </script>
 
@@ -38,7 +35,7 @@ const newRestaurant = ref<Restaurant>({
                 <input
                   type="text"
                   class="input is-large"
-                  placeholder="Sugarcane Lane"
+                  placeholder="Beignet and the Jets"
                   required
                   v-model="newRestaurant.name"
                 />
@@ -47,19 +44,24 @@ const newRestaurant = ref<Restaurant>({
             <div class="field">
               <label for="address" class="label">Address</label>
               <div class="control">
-                <input type="text" class="input" placeholder="1234 Sugarcane Lane" v-model="newRestaurant.address" />
+                <input type="text" class="input" placeholder="389 Going in Cir." v-model="newRestaurant.address" />
               </div>
             </div>
             <div class="field mb-5">
               <label for="website" class="label">Website</label>
               <div class="control">
-                <input type="text" class="input" placeholder="www.sugarcane-lane.com" v-model="newRestaurant.website" />
+                <input
+                  type="text"
+                  class="input"
+                  placeholder="www.beignetandthejets.com"
+                  v-model="newRestaurant.website"
+                />
               </div>
             </div>
             <div class="field">
               <div class="buttons">
                 <button class="button is-success" @click="restaurantStore.addRestaurant(newRestaurant)">Create</button>
-                <button class="button is-light">Cancel</button>
+                <router-link to="/restaurants" class="button is-light">Cancel</router-link>
               </div>
             </div>
           </div>

@@ -22,7 +22,6 @@ import ToEatLogo from '../assets/to-eat-logo.svg'
       </div>
       <div class="navbar-end">
         <div class="navbar-item"><router-link to="/restaurants">Restaurants</router-link></div>
-        <div class="navbar-item">My Stuff</div>
       </div>
     </div>
   </nav>
