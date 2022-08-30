@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router'
 import type { Restaurant, StatusResponse } from '@/types'
 import SideMenu from '../components/SideMenu.vue'
 import { useRestaurantStore } from '@/stores/RestaurantStore'
+import { restaurantStatusList } from '@/constants'
 
 const restaurantStore = useRestaurantStore()
 
@@ -23,10 +24,7 @@ const updatedRestaurant = reactive<Restaurant>({
   name: '',
   address: '',
   website: '',
-  status: {
-    level: '',
-    priority: 0,
-  },
+  status: 'Want to Try',
 })
 
 const updateRestaurant = () => {
@@ -67,6 +65,16 @@ onMounted(() => {
                   required
                   v-model="updatedRestaurant.name"
                 />
+              </div>
+            </div>
+            <div class="field">
+              <label for="status" class="label">Status</label>
+              <div class="control">
+                <div class="select">
+                  <select v-model="updatedRestaurant.status">
+                    <option v-for="status in restaurantStatusList" :value="status">{{ status }}</option>
+                  </select>
+                </div>
               </div>
             </div>
             <div class="field">

@@ -10,30 +10,21 @@ export const useRestaurantStore = defineStore({
       name: 'Quiche From a Rose',
       address: '283 Thisisnota St.',
       website: 'www.quichfromarose.com',
-      status: {
-        level: 'Want to Try',
-        priority: 0,
-      },
+      status: 'Want to Try'
     },
     {
       id: 'ae62a3da-791b-4f44-99a1-4be1b0ec30b8',
       name: 'Tamago Never Dies',
       address: '529 Letsgofora Dr.',
       website: 'www.tamagoneverdies.com',
-      status: {
-        level: 'Want to Try',
-        priority: 0,
-      },
+      status: 'Want to Try'
     },
     {
       id: '9b361dae-2d44-4499-9940-97e188d41a32',
       name: "Penne For Your Thoughts",
       address: '870 Thisisa St.',
       website: 'www.penneforyourthoughts.com',
-      status: {
-        level: 'Want to Try',
-        priority: 0,
-      },
+      status: 'Want to Try'
     },] as Restaurant[])
   }),
   getters: {

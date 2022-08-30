@@ -26,8 +26,5 @@ export interface Restaurant {
   name?: string
   address: string
   website: string
-  status: {
-    level: string
-    priority: number
-  }
+  status: RecommendStatus
 }
