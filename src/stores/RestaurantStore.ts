@@ -7,9 +7,9 @@ export const useRestaurantStore = defineStore({
   state: () => ({
     list: useStorage('toeat-restaurant-list', [ {
       id: '9f995ce4-d2fc-4d00-af1d-6cb1647c6bd3',
-      name: 'El Burrito Mercado',
-      address: '175 Cesar Chavez St, St Paul, MN 55107',
-      website: 'https://elburritomercado.com/',
+      name: 'Quiche From a Rose',
+      address: '283 Thisisnota St.',
+      website: 'www.quichfromarose.com',
       status: {
         level: 'Want to Try',
         priority: 0,
@@ -17,9 +17,9 @@ export const useRestaurantStore = defineStore({
     },
     {
       id: 'ae62a3da-791b-4f44-99a1-4be1b0ec30b8',
-      name: 'El Cubano',
-      address: '870 Dodd Rd, St Paul, MN 55118',
-      website: 'http://elcubanorestaurante.com/',
+      name: 'Tamago Never Dies',
+      address: '529 Letsgofora Dr.',
+      website: 'www.tamagoneverdies.com',
       status: {
         level: 'Want to Try',
         priority: 0,
@@ -27,9 +27,9 @@ export const useRestaurantStore = defineStore({
     },
     {
       id: '9b361dae-2d44-4499-9940-97e188d41a32',
-      name: "Brunson's Pub",
-      address: '956 Payne Ave, St Paul, MN 55130',
-      website: '',
+      name: "Penne For Your Thoughts",
+      address: '870 Thisisa St.',
+      website: 'www.penneforyourthoughts.com',
       status: {
         level: 'Want to Try',
         priority: 0,
