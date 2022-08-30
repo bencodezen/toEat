@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import logo from '../assets/logo.svg'
+import ToEatLogo from '../assets/to-eat-logo.svg'
 </script>
 
 <template>
   <nav class="navbar has-shadow">
     <div class="navbar-brand">
       <router-link to="/" class="navbar-item">
-        <img :src="logo" alt="" width="100" />
+        <img :src="ToEatLogo" alt="" width="100" />
       </router-link>
       <div class="navbar-burger">
         <div class="span"></div>

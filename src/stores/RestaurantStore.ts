@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useStorage } from '@vueuse/core'
-import type { Restaurant } from '../types'
+import type { Restaurant, StatusResponse } from '../types'
 
 export const useRestaurantStore = defineStore({
   id: 'RestaurantStore',
@@ -37,14 +37,37 @@ export const useRestaurantStore = defineStore({
     },] as Restaurant[])
   }),
   getters: {
-    numberOfRestaurants: (state): number => state.list.length
+    numberOfRestaurants: (state): number => state.list.length,
+    getRestaurantById: (state) => {
+      return (id: string | string[]): Restaurant | undefined => {
+        if (typeof id === 'string') {
+          return state.list.find((restaurant: Restaurant) => restaurant.id === id)
+        }
+      }
+    }
   },
   actions: {
-    addRestaurant(newRestaurant: Restaurant): void {
-      this.list.push(newRestaurant);
+    addRestaurant(restaurant: Restaurant): void {
+      this.list.push(restaurant);
     },
     deleteRestaurant(restaurant: Restaurant): void {
       this.list.splice(this.list.indexOf(restaurant), 1);
+    },
+    updateRestaurant(updatedRestaurant: Restaurant): StatusResponse {
+      const index = this.list.findIndex(restaurant => restaurant.id === updatedRestaurant.id);
+      const updatedItem = this.list.splice(index, 1, updatedRestaurant);
+
+      if (updatedItem.length > 0) {
+        return {
+          status: 'success',
+          message: 'Restaurant updated successfully.'
+        }
+      } else {
+        return {
+          status: 'error',
+          message: 'Restaurant unable to be updated.'
+        }
+      }
     }
   }
 })

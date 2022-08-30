@@ -1,9 +1,23 @@
 <script setup lang="ts">
+import { computed, ref } from 'vue'
 import RestaurantCard from '@/components/RestaurantCard.vue'
 import { useRestaurantStore } from '@/stores/RestaurantStore'
 import SideMenu from '../components/SideMenu.vue'
+import type { Restaurant } from '@/types'
 
 const restaurantStore = useRestaurantStore()
+
+const filterText = ref('')
+
+const filteredRestaurants = computed(() => {
+  return restaurantStore.list.filter((restaurant: Restaurant) => {
+    if (restaurant.name) {
+      return restaurant.name.toLowerCase().includes(filterText.value.toLowerCase())
+    } else {
+      return restaurantStore.list
+    }
+  })
+})
 </script>
 
 <template>
@@ -17,7 +31,9 @@ const restaurantStore = useRestaurantStore()
         <nav class="level">
           <div class="level-left">
             <div class="level-item">
-              <p class="subtitle is-5"><strong>6</strong> restaurants</p>
+              <p class="subtitle is-5">
+                <strong>{{ restaurantStore.numberOfRestaurants }}</strong> restaurants
+              </p>
             </div>
 
             <p class="level-item">
@@ -27,7 +43,7 @@ const restaurantStore = useRestaurantStore()
             <div class="level-item is-hidden-tablet-only">
               <div class="field has-addons">
                 <p class="control">
-                  <input class="input" type="text" placeholder="Restaurant name" />
+                  <input class="input" type="text" placeholder="Restaurant name" v-model="filterText" />
                 </p>
                 <p class="control">
                   <button class="button">Search</button>
@@ -37,37 +53,16 @@ const restaurantStore = useRestaurantStore()
           </div>
 
           <div class="level-right">
-            <div class="level-item">Order by</div>
-            <div class="level-item">
-              <div class="select">
-                <select>
-                  <option>Price</option>
-                  <option>Location</option>
-                </select>
-              </div>
-            </div>
+            <!-- Optional: Filter Dropdown Component -->
           </div>
         </nav>
         <!-- Display Results -->
         <div class="columns is-multiline">
-          <div v-for="item in restaurantStore.list" class="column is-full" :key="`item-${item}`">
+          <div v-for="item in filteredRestaurants" class="column is-full" :key="`item-${item}`">
             <RestaurantCard :restaurant="item" />
           </div>
         </div>
-        <!-- Pagination -->
-        <nav class="pagination">
-          <a class="pagination-previous" href="#">Previous</a>
-          <a class="pagination-next" href="#">Next page</a>
-          <ul class="pagination-list">
-            <li><a href="#" class="pagination-link is-current">1</a></li>
-            <li><a href="#" class="pagination-link">2</a></li>
-            <li><a href="#" class="pagination-link">3</a></li>
-            <li><a href="#" class="pagination-link">4</a></li>
-            <li><a href="#" class="pagination-link">5</a></li>
-            <li><span class="pagination-ellipsis">&hellip;</span></li>
-            <li><a href="#" class="pagination-link">15</a></li>
-          </ul>
-        </nav>
+        <!-- Optional: Pagination Feature -->
       </div>
     </div>
   </main>

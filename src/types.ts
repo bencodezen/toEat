@@ -16,6 +16,11 @@ export interface Dish {
   status?: RecommendStatus
 }
 
+export interface StatusResponse {
+  status: 'success' | 'error' | ''
+  message: string
+}
+
 export interface Restaurant {
   id: string
   name?: string

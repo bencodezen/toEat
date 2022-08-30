@@ -30,6 +30,11 @@ const router = createRouter({
       // ]
     },
     {
+      path: '/restaurants/edit/:id',
+      name: 'edit-restaurant',
+      component: () => import('../views/EditRestaurantPage.vue')
+    },
+    {
       path: '/restaurants/new',
       name: 'new-restaurant',
       component: () => import('../views/NewRestaurantPage.vue')
